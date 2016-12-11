@@ -13,8 +13,8 @@ angular
     'ngAnimate',
     'ngCookies',
     'ngResource',
-    'ngRoute',
-    'ngSanitize',
+    'ngRoute',       
+    'ngSanitize',                            
     'ngTouch'
   ])
   .config(function ($routeProvider) {
@@ -24,7 +24,7 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/movie/:movieId', {
+      .when('/movie/ :movieId', {
         templateUrl: 'views/movie.html',
         controller: 'MovieCtrl',
         controllerAs: 'movieCtrl'
@@ -32,5 +32,5 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-
   });
+
