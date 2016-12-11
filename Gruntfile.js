@@ -220,33 +220,35 @@ module.exports = function (grunt) {
             }
           }
       }
-    }, 
-
-    sass: {
-        options: {
-            includePaths: [
-                'bower_components'
-            ]
-        },
-        dist: {
-            files: [{
-                expand: true,
-                cwd: '<%= yeoman.app %>/styles',
-                src: ['*.scss'],
-                dest: '.tmp/styles',
-                ext: '.css'
-            }]
-        },
-        server: {
-            files: [{
-                expand: true,
-                cwd: '<%= yeoman.app %>/styles',
-                src: ['*.scss'],
-                dest: '.tmp/styles',
-                ext: '.css'
-            }]
-        }
     },
+
+    // Compiles Sass to CSS and generates necessary files if requested
+	sass: {
+		options: {
+			includePaths: [
+				'bower_components'
+			]
+		},
+		dist: {
+			files: [{
+				expand: true,
+				cwd: '<%= yeoman.app %>/styles',
+				src: ['*.scss'],
+				dest: '.tmp/styles',
+				ext: '.css'
+			}]
+		},
+		server: {
+			files: [{
+				expand: true,
+				cwd: '<%= yeoman.app %>/styles',
+				src: ['*.scss'],
+				dest: '.tmp/styles',
+				ext: '.css'
+			}]
+		}
+	},
+				 
 
     // Renames files for browser caching purposes
     filerev: {
@@ -426,14 +428,14 @@ module.exports = function (grunt) {
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
-        'sass:server',
+	'sass:server',
         'copy:styles'
       ],
       test: [
         'copy:styles'
       ],
       dist: [
-        'sass',
+	'sass',
         'copy:styles',
         'imagemin',
         'svgmin'
